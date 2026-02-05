@@ -1,4 +1,4 @@
-#  Discord Webhook Go Brrr 
+#  Discord Webhook Go Brrr (with pop-up)
 (this is updated version of temporary repo(why didn't update there? 'cause this is not temporary... like your ex.))
 
 This repo is a **Python + HTML** setup that helps you use **Discord webhooks** without losing brain cells. 
