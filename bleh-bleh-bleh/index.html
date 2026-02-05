@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Discord Help</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Syne', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #0E0204; /* Vampire Black */
+      color: #DFBBCA;      /* Pink Lavender */
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      width: 420px;
+      border: 1px solid #A30E2B; /* Wine Red */
+      padding: 30px;
+      border-radius: 14px;
+    }
+
+    h1 {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin-top: 16px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px;
+      background: transparent;
+      border: 1px solid #DFBBCA;
+      border-radius: 8px;
+      color: #DFBBCA;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #DFBBCA99;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #A30E2B;
+    }
+
+    select {
+      cursor: pointer;
+    }
+
+    #fileBox {
+      display: none;
+    }
+
+    button {
+      margin-top: 22px;
+      width: 100%;
+      padding: 12px;
+      background: #A30E2B;
+      color: #DFBBCA;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .footer {
+      margin-top: 16px;
+      font-size: 11px;
+      text-align: center;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>Webhook babu shyt</h1>
+
+    <form action="/send" method="POST" enctype="multipart/form-data">
+
+      <label>Webhook ka url dal chup chap:</label>
+      <input type="text" name="webhook_url"
+             placeholder="Webhook ka url dal chup chap:" required>
+
+      <label>Kya bataun server ke logon ko:</label>
+      <textarea name="message" rows="4"
+                placeholder="Kya bataun server ke logon ko:" required></textarea>
+
+      <label>
+        Koi attachment? File attachment btw, vo nahi jo tujhe usse hui thi...
+      </label>
+
+      <select name="attach_choice" id="attachChoice">
+        <option value="n">nah</option>
+        <option value="y">ji</option>
+      </select>
+
+      <div id="fileBox">
+        <label>Pura file path bta... :</label>
+        <input type="file" name="file">
+      </div>
+
+      <button type="submit">SEND</button>
+    </form>
+
+    <p class="footer">Chala gaya bhai message — hopefully.</p>
+  </div>
+
+  <script>
+    const attachChoice = document.getElementById("attachChoice");
+    const fileBox = document.getElementById("fileBox");
+
+    attachChoice.addEventListener("change", () => {
+      fileBox.style.display = attachChoice.value === "y" ? "block" : "none";
+    });
+  </script>
+
+</body>
+</html>
