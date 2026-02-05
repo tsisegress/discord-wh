@@ -35,6 +35,6 @@ No frameworks. No magic. Just works.
 
 ---
 
-## 🚀 How to run it
+## How to run it
 
 bleh bleh bleh...
